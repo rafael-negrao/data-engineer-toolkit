@@ -371,7 +371,7 @@ services:
     hostname: all-spark-notebook
     ports:
       - "4041:4040"
-      - "8088:8080"
+      - "7080:8080"
       - "8888:8888"
     networks:
       - data-engineer-toolkit-network
