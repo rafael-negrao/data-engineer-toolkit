@@ -2,6 +2,10 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=ssh,linux,macos,maven,pydev,python,eclipse,windows,terraform,pycharm+all,intellij+all,phpstorm+all,jupyternotebooks,visualstudiocode,spark
 
 .idea
+airflow/config/**
+airflow/dags/**
+airflow/logs/**
+airflow/plugins/**
 
 ### Eclipse ###
 .metadata
