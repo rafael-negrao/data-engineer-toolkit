@@ -31,7 +31,7 @@ args = {
 }
 
 with DAG(
-        dag_id='example_spark_operator',
+        dag_id='example_validacao_ambiente',
         default_args=args,
         schedule_interval=None,
         start_date=days_ago(2),
@@ -39,7 +39,7 @@ with DAG(
 ) as dag:
     # [START howto_operator_spark_submit]
     submit_job = SparkSubmitOperator(
-        application="/opt/airflow/dags/spark/pi.py",
+        application="/opt/airflow/dags/spark/validacao_ambiente.py",
         task_id="submit_job",
         conn_id='spark_default_',
         verbose=True
