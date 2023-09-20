@@ -28,11 +28,14 @@ docker-build-image-airflow:
 
 
 docker-build-image-spark:
-	@docker build . -f spark.Dockerfile --pull --tag bitnami/spark:3.3.0
+	@bash ./spark/build-image/build_from_make.sh
 
 
 docker-build-image-jupyter:
 	@docker build . -f jupyter.Dockerfile --pull --tag jupyter/all-spark-notebook:python-3.8.13
+
+
+docker-build-images: docker-build-image-airflow docker-build-image-spark docker-build-image-jupyter
 
 
 export-requirements:
