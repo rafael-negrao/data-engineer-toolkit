@@ -53,3 +53,26 @@ env-local-dev-down_all-spark-notebook-airflow: env-local-dev-stop_all-spark-note
 env-local-dev-start_all-spark-notebook-airflow: env-local-dev-down_all-spark-notebook-airflow
 	docker-compose -f docker-compose_all-spark-notebook-airflow.yml up
 
+
+env-local-dev-stop_all-spark-notebook:
+	docker-compose -f docker-compose_all-spark-notebook.yml stop
+
+
+env-local-dev-down_all-spark-notebook: env-local-dev-stop_all-spark-notebook
+	docker-compose -f docker-compose_all-spark-notebook.yml down
+
+
+env-local-dev-start_all-spark-notebook: env-local-dev-down_all-spark-notebook
+	docker-compose -f docker-compose_all-spark-notebook.yml up
+
+
+env-local-dev-stop_kafka:
+	docker-compose -f docker-compose_kafka.yml stop
+
+
+env-local-dev-down_kafka: env-local-dev-stop_kafka
+	docker-compose -f docker-compose_kafka.yml down
+
+
+env-local-dev-start_kafka: env-local-dev-down_kafka
+	docker-compose -f docker-compose_kafka.yml up
