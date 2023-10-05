@@ -19,7 +19,7 @@ test: package
 	@poetry run python run_tests.py
 
 
-install: test
+install: tests
 	@poetry install
 
 
@@ -42,22 +42,14 @@ export-requirements:
 	@poetry export --without-hashes --format=requirements.txt > requirements.txt
 
 
-env-local-dev-stop:
-	docker-compose -f docker-compose.yml stop &
+env-local-dev-stop_all-spark-notebook-airflow:
+	docker-compose -f docker-compose_all-spark-notebook-airflow.yml stop
 
 
-env-local-dev-down: env-local-dev-stop
-	docker-compose -f docker-compose.yml down &
+env-local-dev-down_all-spark-notebook-airflow: env-local-dev-stop_all-spark-notebook-airflow
+	docker-compose -f docker-compose_all-spark-notebook-airflow.yml down
 
 
-env-local-dev-start: env-local-dev-down export-requirements
-	docker-compose -f docker-compose.yml up --build &
-
-
-env-local-start-all-spark-notebook: env-local-dev-down
-	docker-compose up minio spark-master spark-worker-1 spark-worker-2 all-spark-notebook &
-
-
-env-local-start-all-spark-notebook-airflow: env-local-dev-down
-	docker-compose up minio spark-master spark-worker-1 spark-worker-2 all-spark-notebook postgres redis airflow-init airflow-webserver airflow-scheduler airflow-worker airflow-triggerer airflow-cli flower &
+env-local-dev-start_all-spark-notebook-airflow: env-local-dev-down_all-spark-notebook-airflow
+	docker-compose -f docker-compose_all-spark-notebook-airflow.yml up
 
