@@ -64,6 +64,28 @@ Principais comando:
 - **make env-local-dev-start_all-spark-notebook-airflow**
     - Inicializa todos os serviços contidos no arquivo [docker-compose_all-spark-notebook-airflow.yml](docker-compose_all-spark-notebook-airflow.yml)
 
+## Docker Run - Apache Spark
+
+Principais comando:
+
+- **make env-local-dev-stop_all-spark-notebook**
+    - Para a execução do ambiente docker
+- **make env-local-dev-down_all-spark-notebook**
+    - Para a execução do ambiente docker e remove os containers
+- **make env-local-dev-start_all-spark-notebook**
+    - Inicializa todos os serviços contidos no arquivo [docker-compose_all-spark-notebook.yml](docker-compose_all-spark-notebook.yml)
+
+## Docker Run - Apache Kafka
+
+Principais comando:
+
+- **make env-local-dev-stop_kafka**
+    - Para a execução do ambiente docker
+- **make env-local-dev-down_kafka**
+    - Para a execução do ambiente docker e remove os containers
+- **make env-local-dev-start_kafka**
+    - Inicializa todos os serviços contidos no arquivo [docker-compose_kafka.yml](docker-compose_kafka.yml)
+
 ## Serviços Docker
 
 | Nome do Serviço    | Descrição                                       | Portas                                                                                          |
