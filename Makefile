@@ -30,6 +30,9 @@ docker-build-image-airflow:
 docker-build-image-spark:
 	@bash ./spark/build-image/build_from_make.sh
 
+docker-build-image-spark-win:
+	@cmd ./spark/build-image/build_from_make.bat
+
 
 docker-build-image-jupyter:
 	@docker build . -f jupyter.Dockerfile --pull --tag jupyter/all-spark-notebook:python-3.8.13
