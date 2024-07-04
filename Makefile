@@ -31,7 +31,9 @@ docker-build-image-spark:
 	@bash ./spark/build-image/build_from_make.sh
 
 docker-build-image-spark-win:
-	@cmd ./spark/build-image/build_from_make.bat
+	@docker build ./spark/build-image/base --tag bde2020/spark-base:3.3.0-hadoop3.3
+	@docker build ./spark/build-image/master --tag bde2020/spark-master:3.3.0-hadoop3.3
+	@docker build ./spark/build-image/worker --tag bde2020/spark-worker:3.3.0-hadoop3.3
 
 
 docker-build-image-jupyter:
