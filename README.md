@@ -50,6 +50,9 @@ Principais comandos:
 - **make docker-build-image-spark**
     - Monta a imagem do spark
     - O projeto de referência está no diretório [spark/build-image](spark%2Fbuild-image)
+- **docker-build-image-spark-win**
+    - Monta a imagem do spark
+    - O projeto de referência está no diretório [spark/build-image](spark%2Fbuild-image)
 - **make docker-build-image-jupyter**
     - Monta a imagem do jupyter usando como referência o arquivo [jupyter.Dockerfile](jupyter.Dockerfile)
 
