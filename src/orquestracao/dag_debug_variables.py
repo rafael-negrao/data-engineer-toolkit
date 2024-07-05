@@ -1,12 +1,25 @@
+import logging
+import sys
+import tempfile
+import time
+from pprint import pprint
+
 import airflow.utils.dates
 from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow.decorators import task
 
-import logging
+log = logging.getLogger(__name__)
 
-def _print_context(**kwargs):
-    logging.info(f"kwargs = {kwargs}")
-    return kwargs
+PATH_TO_PYTHON_BINARY = sys.executable
+
+BASE_DIR = tempfile.gettempdir()
+
+@task(task_id="print_the_context")
+def _print_context(ds=None, **kwargs):
+    """Print the Airflow context and ds variable from the context."""
+    pprint(kwargs)
+    print(ds)
+    return "Whatever you return gets printed in the logs"
 
 
 with DAG(
@@ -14,8 +27,4 @@ with DAG(
         start_date=airflow.utils.dates.days_ago(3),
         schedule_interval="@daily",
 ) as dag:
-    PythonOperator(
-        task_id="print_context",
-        python_callable=_print_context
-    )
-
+    run_this = _print_context()

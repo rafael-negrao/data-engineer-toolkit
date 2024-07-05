@@ -19,8 +19,8 @@ def _calculate_stats(input_path, output_path):
 # Uma DAG representa um workflow, um conjunto de task
 with DAG(
         dag_id="ola_mundo_data_incremental",  # nome da DAG
-        start_date=datetime(2023, 10, 1),  # A data em que o DAG deve começar a funcionar pela primeira vez
-        end_date=datetime(2023, 10, 5),  # A data em que o DAG deve encerrar o funcionamento
+        start_date=datetime(2024, 7, 1),  # A data em que o DAG deve começar a funcionar pela primeira vez
+        end_date=datetime(2024, 7, 5),  # A data em que o DAG deve encerrar o funcionamento
         schedule_interval="@daily"  # timedelta oferece a capacidade de usar programações baseadas em frequência.
 ) as dag:
 
@@ -32,4 +32,4 @@ with DAG(
             "output_path": "/opt/airflow/data/stats/{{ ds }}/stats.csv"}
     )
 
-    
+
